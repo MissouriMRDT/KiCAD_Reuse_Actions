@@ -1,5 +1,9 @@
 on: 
     workflow_call:
+        inputs:
+            project-name:
+                required: true
+                type: string
 
 jobs:
   Kicad-Generate-Gerbs:
@@ -11,14 +15,14 @@ jobs:
     - name: Run KiCad actions
       uses: actions-for-kicad/kicad-actions@v1.4-k9.0.2
       with:
-        schematic_file_name: ./board/led_matrix.kicad_sch
-        symbol_libraries: "led_matrix=../lib/symbols/led_matrix.kicad_sym"
+        schematic_file_name: ./board/${{inputs.project-name}}.kicad_sch
+        symbol_libraries: "${{inputs.project-name}}=../lib/Symbols/${{inputs.project-name}}.kicad_sym"
         run_erc: false
         schematic_output_pdf: true
         schematic_output_bom: true
   
-        pcb_file_name: ./board/led_matrix.kicad_pcb
-        footprint_libraries: "led_matrix=../lib/footprints/led_matrix.pretty"
+        pcb_file_name: ./board/${{inputs.project-name}}.kicad_pcb
+        footprint_libraries: "${{inputs.project-name}}=../lib/Footprints/${{inputs.project-name}}.pretty"
         run_drc: false
         pcb_output_gerbers_and_drill: true
         pcb_output_image: true
