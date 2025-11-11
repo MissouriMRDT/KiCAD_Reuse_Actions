@@ -19,7 +19,7 @@ jobs:
 
     - name: Setup Paths
       if: ${{github.event.inputs.board-path}} != ''
-      run: echo "Path is set to ${{ github.event.inputs.board-path }}"
+      run: echo "Path is set to ${{ inputs.board-path }}"
 
     
     - name: Run KiCad actions
@@ -35,7 +35,7 @@ jobs:
         schematic_output_bom_labels: Reference,Qty,Value,Exclude from BOM,Exclude from Board,Footprint,Datasheet
         pcb_output_step_file_name: ${{inputs.project-name}}.step
   
-        pcb_file_name: ./board/${{inputs.project-name}}.kicad_pcb
+        pcb_file_name: ${{inputs.board-path}}/${{inputs.project-name}}.kicad_pcb
         footprint_libraries: "${{inputs.project-name}}=../lib/Footprints/${{inputs.project-name}}.pretty"
         run_drc: false
         pcb_output_gerbers_and_drill: true
