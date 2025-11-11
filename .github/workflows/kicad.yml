@@ -25,8 +25,8 @@ jobs:
     - name: Run KiCad actions
       uses: actions-for-kicad/kicad-actions@v1.4-k9.0.2
       with:
-        schematic_file_name: ${{inputs.board-path}}/${{inputs.project-name}}.kicad_sch
-        symbol_libraries: "${{inputs.project-name}}=../lib/Symbols/${{inputs.project-name}}.kicad_sym"
+        schematic_file_name: '${{inputs.board-path}}/${{inputs.project-name}}.kicad_sch'
+        symbol_libraries: '${{inputs.project-name}}=../lib/Symbols/${{inputs.project-name}}.kicad_sym'
         run_erc: false
         schematic_output_pdf: true
         schematic_output_bom: true
@@ -34,8 +34,8 @@ jobs:
         schematic_output_bom_fields: '*'
         schematic_output_bom_labels: Reference,Qty,Value,Exclude from BOM,Exclude from Board,Footprint,Datasheet
   
-        pcb_file_name: ${{inputs.board-path}}/${{inputs.project-name}}.kicad_pcb
-        footprint_libraries: "${{inputs.project-name}}=../lib/Footprints/${{inputs.project-name}}.pretty"
+        pcb_file_name: '${{inputs.board-path}}/${{inputs.project-name}}.kicad_pcb'
+        footprint_libraries: '${{inputs.project-name}}=../lib/Footprints/${{inputs.project-name}}.pretty'
         run_drc: false
         pcb_output_gerbers_and_drill: true
         pcb_output_image: true
