@@ -11,7 +11,7 @@ on:
                 default: './board'
 
 jobs:
-  Kicad-Generate-Gerbs:
+  Kicad-Generate-All:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
