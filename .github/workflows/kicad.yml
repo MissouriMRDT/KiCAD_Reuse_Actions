@@ -19,7 +19,7 @@ jobs:
 
     - name: Setup Paths
       if: ${{github.event.inputs.board-path}} != ''
-      run: echo ${{ github.event.client_payload.board-path }}
+      run: echo ${{github.event.inputs.board-path}}
 
     
     - name: Run KiCad actions
