@@ -40,7 +40,7 @@ jobs:
         footprint_libraries: '${{inputs.project-name}}=../lib/Footprints/${{inputs.project-name}}.pretty'
         run_drc: false
         pcb_output_gerbers_and_drill: true
-        pcb_output_gerbers_folder_name: ${{inputs.project-name}}
+        pcb_output_gerbers_and_drill_folder_name: ${{inputs.project-name}}
         pcb_output_image: true
         pcb_output_image_file_name: ${{inputs.project-name}}.png
         pcb_output_step: true
@@ -50,25 +50,25 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Schematic
-        path: ./schematic.pdf
+        path: ./${{inputs.project-name}}pdf
 
     - name: Upload BOM
       uses: actions/upload-artifact@v4
       with:
         name: BOM
-        path: ./bom.csv
+        path: ./${{inputs.project-name}}.csv
 
     - name: Upload gerbers and drill file
       uses: actions/upload-artifact@v4
       with:
         name: Gerbers
-        path: ./gerbers
+        path: ./${{inputs.project-name}}
 
     - name: Upload image render
       uses: actions/upload-artifact@v4
       with:
         name: Image render
-        path: ./pcb.png
+        path: ./${{inputs.project-name}}.png
 
     - name: Upload step file
       uses: actions/upload-artifact@v4
