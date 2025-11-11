@@ -4,7 +4,8 @@ on:
             project-name:
                 required: true
                 type: string
-            board_path: # Path to kicad project in reference to root directory
+            board_path:
+                description: 'Path to kicad project in reference to root directory'
                 required: false
                 type: string
 
