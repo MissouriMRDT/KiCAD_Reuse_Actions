@@ -19,10 +19,10 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Setup Paths
-      if: ${{ github.event.inputs.board_path != '' }}
+      if: "${{ github.event.inputs.board_path != '' }}"
       run: echo "Path is set to $inputs.path"
       env:
-        board_path: ${{inputs.path}}
+        board_path: ${{inputs.board_path}}
 
     
     - name: Run KiCad actions
