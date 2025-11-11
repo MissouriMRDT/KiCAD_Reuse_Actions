@@ -49,29 +49,29 @@ jobs:
     - name: Upload schematic
       uses: actions/upload-artifact@v4
       with:
-        name: Schematic
-        path: ./${{inputs.project-name}}pdf
+        name: ${{inputs.project-name}} Schematic
+        path: ./${{inputs.project-name}}.pdf
 
     - name: Upload BOM
       uses: actions/upload-artifact@v4
       with:
-        name: BOM
+        name: ${{inputs.project-name}} BOM
         path: ./${{inputs.project-name}}.csv
 
     - name: Upload gerbers and drill file
       uses: actions/upload-artifact@v4
       with:
-        name: Gerbers
+        name: ${{inputs.project-name}} Gerbers
         path: ./${{inputs.project-name}}
 
     - name: Upload image render
       uses: actions/upload-artifact@v4
       with:
-        name: Image render
+        name: ${{inputs.project-name}} Image render
         path: ./${{inputs.project-name}}.png
 
     - name: Upload step file
       uses: actions/upload-artifact@v4
       with:
-        name: STEP
+        name: ${{inputs.project-name}} STEP
         path: ./${{inputs.project-name}}.step
