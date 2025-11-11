@@ -4,12 +4,12 @@ on:
             project-name:
                 required: true
                 type: string
-            path: # Path to kicad project in reference to root directory
+            board_path: # Path to kicad project in reference to root directory
                 required: false
                 type: string
 
 env:
-    PATH: ./board
+    board_path: ./board
 
 jobs:
   Kicad-Generate-Gerbs:
@@ -22,13 +22,13 @@ jobs:
       if: ${{ github.event.inputs.path != '' }}
       run: echo "Path is set to $inputs.path"
       env:
-        PATH: ${{inputs.path}}
+        board_path: ${{inputs.path}}
 
     
     - name: Run KiCad actions
       uses: actions-for-kicad/kicad-actions@v1.4-k9.0.2
       with:
-        schematic_file_name: $PATH/${{inputs.project-name}}.kicad_sch
+        schematic_file_name: ${{env.board_path}}/${{inputs.project-name}}.kicad_sch
         symbol_libraries: "${{inputs.project-name}}=../lib/Symbols/${{inputs.project-name}}.kicad_sym"
         run_erc: false
         schematic_output_pdf: true
