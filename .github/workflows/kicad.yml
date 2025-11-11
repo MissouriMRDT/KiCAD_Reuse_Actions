@@ -20,6 +20,9 @@ jobs:
         run_erc: false
         schematic_output_pdf: true
         schematic_output_bom: true
+        schematic_output_bom_fields: '*'
+        schematic_output_bom_labels: Reference,Qty,Value,Exclude from BOM,Exclude from Board,Footprint,Datasheet
+
   
         pcb_file_name: ./board/${{inputs.project-name}}.kicad_pcb
         footprint_libraries: "${{inputs.project-name}}=../lib/Footprints/${{inputs.project-name}}.pretty"
