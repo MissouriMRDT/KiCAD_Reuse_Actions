@@ -54,3 +54,9 @@ jobs:
       with:
         name: Image render
         path: ./pcb.png
+
+    - name: Upload step file
+      uses: actions/upload-artifact@v4
+      with:
+        name: STEP
+        path: ./${{inputs.project-name}}.step
