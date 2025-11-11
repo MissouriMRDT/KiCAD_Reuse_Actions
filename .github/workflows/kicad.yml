@@ -29,8 +29,10 @@ jobs:
         symbol_libraries: '${{inputs.project-name}}=../lib/Symbols/${{inputs.project-name}}.kicad_sym'
         run_erc: false
         schematic_output_pdf: true
+        schematic_output_pdf_file_name: ${{inputs.project-name}}.pdf
         schematic_output_bom: true
-        pcb_output_step: true
+        schematic_output_bom_file_name: ${{inputs.project-name}}.csv
+
         schematic_output_bom_fields: '*'
         schematic_output_bom_labels: Reference,Qty,Value,Exclude from BOM,Exclude from Board,Footprint,Datasheet
   
@@ -38,7 +40,10 @@ jobs:
         footprint_libraries: '${{inputs.project-name}}=../lib/Footprints/${{inputs.project-name}}.pretty'
         run_drc: false
         pcb_output_gerbers_and_drill: true
+        pcb_output_gerbers_folder_name: ${{inputs.project-name}}
         pcb_output_image: true
+        pcb_output_image_file_name: ${{inputs.project-name}}.png
+        pcb_output_step: true
         pcb_output_step_file_name: ${{inputs.project-name}}.step
 
     - name: Upload schematic
